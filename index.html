@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PinGptChats - Pin Your Important ChatGPT Conversations</title>
+    <meta
+      name="description"
+      content="Tired of scrolling through endless ChatGPT conversations? Pin your important chats to the top with one click. Perfect for free accounts without project management features."
+    />
+    <meta
+      name="keywords"
+      content="ChatGPT, pin, chrome extension, organize conversations, productivity, free account"
+    />
+    <meta name="author" content="Hazem Aamer" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta
+      property="og:title"
+      content="PinGptChats - Pin Your Important ChatGPT Conversations"
+    />
+    <meta
+      property="og:description"
+      content="Tired of scrolling through endless ChatGPT conversations? Pin your important chats to the top with one click."
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="PinGptChats" />
+    <meta
+      property="twitter:description"
+      content="Tired of scrolling through endless ChatGPT conversations?"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#10a37f">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img
+            src="logo.png"
+            width="40"
+            height="40"
+            alt="PinGptChats Logo"
+            class="logo-image"
+          />
+          <span>PinGptChats</span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#privacy" class="nav-link">Privacy</a>
+          <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              Stop Searching.
+              <span class="gradient-text">Start Pinning.</span>
+            </h1>
+            <p class="hero-description">
+              Tired of scrolling through endless ChatGPT conversations? As a
+              free user, you don't have project management features. Pin your
+              important chats to the top in one click - faster than browser
+              bookmarks, cleaner than a messy sidebar.
+            </p>
+            <div class="hero-buttons">
+              <a
+                href="https://chrome.google.com/webstore/detail/pingptchats"
+                target="_blank"
+                class="btn btn-primary"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
+                  />
+                </svg>
+                Add to Chrome - Free
+              </a>
+              <a href="#how-it-works" class="btn btn-secondary"
+                >See How It Works</a
+              >
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="browser-title">ChatGPT</div>
+              </div>
+              <div class="browser-content">
+                <div class="chat-sidebar">
+                  <div class="pinned-section">
+                    <div class="pinned-header">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="#FFD700"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                        />
+                      </svg>
+                      <span>Pinned</span>
+                    </div>
+                    <div class="chat-item pinned">
+                      <span>API Integration Help</span>
+                      <svg
+                        class="pin-icon pinned"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M12 2C12.55 2 13 2.45 13 3L13 4.1C14.8 4.47 16.3 5.64 17.1 7.2L18.2 7.2C19.19 7.2 20 8.01 20 9L20 10.2C20 11.19 19.19 12 18.2 12L17.1 12C16.3 13.56 14.8 14.73 13 15.1L13 22C13 22.55 12.55 23 12 23C11.45 23 11 22.55 11 22L11 15.1C9.2 14.73 7.7 13.56 6.9 12L5.8 12C4.81 12 4 11.19 4 10.2L4 9C4 8.01 4.81 7.2 5.8 7.2L6.9 7.2C7.7 5.64 9.2 4.47 11 4.1L11 3C11 2.45 11.45 2 12 2ZM7.2 9C7.2 7.9 7.8 7 8.7 7C9.6 7 10.3 7.9 10.3 9C10.3 10.1 9.6 11 8.7 11C7.8 11 7.2 10.1 7.2 9ZM13.7 9C13.7 7.9 14.4 7 15.3 7C16.2 7 16.9 7.9 16.9 9C16.9 10.1 16.2 11 15.3 11C14.4 11 13.7 10.1 13.7 9Z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="chat-item pinned">
+                      <span>Debugging Session</span>
+                      <svg
+                        class="pin-icon pinned"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M12 2C12.55 2 13 2.45 13 3L13 4.1C14.8 4.47 16.3 5.64 17.1 7.2L18.2 7.2C19.19 7.2 20 8.01 20 9L20 10.2C20 11.19 19.19 12 18.2 12L17.1 12C16.3 13.56 14.8 14.73 13 15.1L13 22C13 22.55 12.55 23 12 23C11.45 23 11 22.55 11 22L11 15.1C9.2 14.73 7.7 13.56 6.9 12L5.8 12C4.81 12 4 11.19 4 10.2L4 9C4 8.01 4.81 7.2 5.8 7.2L6.9 7.2C7.7 5.64 9.2 4.47 11 4.1L11 3C11 2.45 11.45 2 12 2ZM7.2 9C7.2 7.9 7.8 7 8.7 7C9.6 7 10.3 7.9 10.3 9C10.3 10.1 9.6 11 8.7 11C7.8 11 7.2 10.1 7.2 9ZM13.7 9C13.7 7.9 14.4 7 15.3 7C16.2 7 16.9 7.9 16.9 9C16.9 10.1 16.2 11 15.3 11C14.4 11 13.7 10.1 13.7 9Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="regular-section">
+                    <div class="chat-item">
+                      <span>Recipe Ideas</span>
+                      <svg
+                        class="pin-icon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M12 2C12.55 2 13 2.45 13 3L13 4.1C14.8 4.47 16.3 5.64 17.1 7.2L18.2 7.2C19.19 7.2 20 8.01 20 9L20 10.2C20 11.19 19.19 12 18.2 12L17.1 12C16.3 13.56 14.8 14.73 13 15.1L13 22C13 22.55 12.55 23 12 23C11.45 23 11 22.55 11 22L11 15.1C9.2 14.73 7.7 13.56 6.9 12L5.8 12C4.81 12 4 11.19 4 10.2L4 9C4 8.01 4.81 7.2 5.8 7.2L6.9 7.2C7.7 5.64 9.2 4.47 11 4.1L11 3C11 2.45 11.45 2 12 2ZM7.2 9C7.2 7.9 7.8 7 8.7 7C9.6 7 10.3 7.9 10.3 9C10.3 10.1 9.6 11 8.7 11C7.8 11 7.2 10.1 7.2 9ZM13.7 9C13.7 7.9 14.4 7 15.3 7C16.2 7 16.9 7.9 16.9 9C16.9 10.1 16.2 11 15.3 11C14.4 11 13.7 10.1 13.7 9Z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="chat-item">
+                      <span>Travel Planning</span>
+                      <svg
+                        class="pin-icon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M12 2C12.55 2 13 2.45 13 3L13 4.1C14.8 4.47 16.3 5.64 17.1 7.2L18.2 7.2C19.19 7.2 20 8.01 20 9L20 10.2C20 11.19 19.19 12 18.2 12L17.1 12C16.3 13.56 14.8 14.73 13 15.1L13 22C13 22.55 12.55 23 12 23C11.45 23 11 22.55 11 22L11 15.1C9.2 14.73 7.7 13.56 6.9 12L5.8 12C4.81 12 4 11.19 4 10.2L4 9C4 8.01 4.81 7.2 5.8 7.2L6.9 7.2C7.7 5.64 9.2 4.47 11 4.1L11 3C11 2.45 11.45 2 12 2ZM7.2 9C7.2 7.9 7.8 7 8.7 7C9.6 7 10.3 7.9 10.3 9C10.3 10.1 9.6 11 8.7 11C7.8 11 7.2 10.1 7.2 9ZM13.7 9C13.7 7.9 14.4 7 15.3 7C16.2 7 16.9 7.9 16.9 9C16.9 10.1 16.2 11 15.3 11C14.4 11 13.7 10.1 13.7 9Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why PinGptChats?</h2>
+          <p class="section-subtitle">
+            Because you have better things to do than scrolling through
+            conversations
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3>One-Click Speed</h3>
+            <p>
+              Pin any conversation in under a second. No bookmarks, no folders,
+              no hassle.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
+                />
+              </svg>
+            </div>
+            <h3>100% Private</h3>
+            <p>
+              Your chats never leave your browser. No tracking, no servers, no
+              bullshit.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M3 12h18m-9-9v18" />
+              </svg>
+            </div>
+            <h3>Perfect for Free Users</h3>
+            <p>
+              Don't have ChatGPT Plus projects? This is your productivity
+              solution.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 9h6v6H9z" />
+              </svg>
+            </div>
+            <h3>Clean Interface</h3>
+            <p>Minimal design that doesn't clutter your ChatGPT experience.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <h3>Always Visible</h3>
+            <p>
+              Your pinned chats stay at the top where you can see them
+              instantly.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 12h-8l-4-9-4 9H1l7 8-2 9 9-5 9 5-2-9z" />
+              </svg>
+            </div>
+            <h3>Developer Friendly</h3>
+            <p>
+              Pin debugging sessions, API help, and code reviews for quick
+              reference.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">Get started in 3 simple steps</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Install Extension</h3>
+              <p>Add PinGptChats from the Chrome Web Store - it's free</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Visit ChatGPT</h3>
+              <p>Go to chatgpt.com and hover over any conversation</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Click to Pin</h3>
+              <p>
+                Click the pin icon that appears. That's it. Your chat is now at
+                the top.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perfect For Section -->
+    <section class="perfect-for">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Made For</h2>
+          <p class="section-subtitle">Real people solving real problems</p>
+        </div>
+        <div class="use-cases">
+          <div class="use-case">
+            <div class="use-case-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+              </svg>
+            </div>
+            <h3>Developers</h3>
+            <p>
+              Pin debugging sessions, API docs, and code reviews. Stop hunting
+              through endless conversations.
+            </p>
+          </div>
+          <div class="use-case">
+            <div class="use-case-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+            </div>
+            <h3>Researchers</h3>
+            <p>
+              Keep key findings and literature reviews at the top. Focus on
+              research, not navigation.
+            </p>
+          </div>
+          <div class="use-case">
+            <div class="use-case-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+            <h3>Students</h3>
+            <p>
+              Pin study guides, homework help, and learning resources. Study
+              smarter, not harder.
+            </p>
+          </div>
+          <div class="use-case">
+            <div class="use-case-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                />
+                <path
+                  d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                />
+              </svg>
+            </div>
+            <h3>Content Creators</h3>
+            <p>
+              Pin creative briefs, outlines, and ongoing projects. Your best
+              ideas always visible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="privacy">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Privacy & Security</h2>
+          <p class="section-subtitle">Your privacy is our top priority</p>
+        </div>
+        <div class="privacy-content">
+          <div class="privacy-item">
+            <div class="privacy-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="privacy-text">
+              <h3>No Data Collection</h3>
+              <p>
+                We don't collect, transmit, or access your conversation content
+              </p>
+            </div>
+          </div>
+          <div class="privacy-item">
+            <div class="privacy-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="11" width="18" height="10" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <div class="privacy-text">
+              <h3>Local Storage Only</h3>
+              <p>
+                Everything stays local in your browser using Chrome's sync
+                storage
+              </p>
+            </div>
+          </div>
+          <div class="privacy-item">
+            <div class="privacy-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M9 12l2 2 4-4" />
+                <path
+                  d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18zm0 0v6c0 .552-.448 1-1 1H4c-.552 0-1-.448-1-1v-6"
+                />
+              </svg>
+            </div>
+            <div class="privacy-text">
+              <h3>Minimal Permissions</h3>
+              <p>
+                Only requests storage and host permissions for ChatGPT websites
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="privacy-link">
+          <a href="privacy-policy.html" class="link"
+            >Read our full Privacy Policy →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Stop The Scroll Madness</h2>
+          <p>
+            Install PinGptChats now and focus on what matters - your
+            conversations, not finding them
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="https://chrome.google.com/webstore/detail/pingptchats"
+              target="_blank"
+              class="btn btn-primary btn-large"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
+                />
+              </svg>
+              Add to Chrome - It's Free
+            </a>
+            <a
+              href="https://github.com/7azemaamer/pinGptChats"
+              target="_blank"
+              class="btn btn-outline"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="#10A37F" />
+                <path
+                  d="M8 8L8 16L16 16L16 8L8 8ZM10 10L14 10L14 14L10 14L10 10Z"
+                  fill="white"
+                />
+                <path
+                  d="M18 8L26 8L26 16L18 16L18 8ZM20 10L24 10L24 14L20 14L20 10Z"
+                  fill="white"
+                />
+                <path
+                  d="M8 18L16 18L16 26L8 26L8 18ZM10 20L14 20L14 24L10 24L10 20Z"
+                  fill="white"
+                />
+                <path
+                  d="M18 18L26 18L26 26L18 26L18 18ZM20 20L24 20L24 24L20 24L20 20Z"
+                  fill="white"
+                />
+                <circle cx="16" cy="16" r="2" fill="#FFD700" />
+              </svg>
+              <span>PinGptChats</span>
+            </div>
+            <p>Organize your ChatGPT conversations with one click</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Product</h4>
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How It Works</a>
+              <a
+                href="https://chrome.google.com/webstore/detail/pingptchats"
+                target="_blank"
+                >Install</a
+              >
+            </div>
+            <div class="footer-section">
+              <h4>Support</h4>
+              <a href="privacy-policy.html">Privacy Policy</a>
+              <a
+                href="https://github.com/7azemaamer/pinGptChats/issues"
+                target="_blank"
+                >Report Issue</a
+              >
+              <a href="mailto:hazem.aamer.dev@gmail.com">Contact</a>
+            </div>
+            <div class="footer-section">
+              <h4>Developer</h4>
+              <a href="https://github.com/7azemaamer" target="_blank">GitHub</a>
+              <a
+                href="https://github.com/7azemaamer/pinGptChats"
+                target="_blank"
+                >Project</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 PinGptChats. Made by
+            <a href="https://github.com/7azemaamer" target="_blank"
+              >Hazem Aamer</a
+            >
+          </p>
+          <p>
+            Not affiliated with OpenAI or ChatGPT. Chrome Web Store and Google
+            Chrome are trademarks of Google LLC.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

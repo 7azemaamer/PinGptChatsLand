@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - PinGptChats</title>
+    <meta name="description" content="Privacy policy for PinGptChats Chrome extension. Learn how we protect your data and privacy.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#10a37f">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .privacy-hero {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            text-align: center;
+        }
+
+        .privacy-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .privacy-hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .privacy-content {
+            padding: 60px 0;
+            background: var(--background);
+        }
+
+        .privacy-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .privacy-nav {
+            position: sticky;
+            top: 90px;
+            background: var(--background-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .privacy-document {
+            background: var(--background-card);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .privacy-document h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .privacy-document h2:first-child {
+            margin-top: 0;
+        }
+
+        .privacy-document h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            color: var(--text-primary);
+        }
+
+        .privacy-document p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .privacy-document ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .privacy-document li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .privacy-document strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .privacy-document code {
+            background: var(--background-alt);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .privacy-highlight {
+            background: linear-gradient(135deg, rgba(16, 163, 127, 0.1), rgba(16, 163, 127, 0.05));
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: var(--border-radius);
+        }
+
+        .privacy-highlight p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .privacy-nav {
+            position: sticky;
+            top: 90px;
+            background: var(--background-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .privacy-nav h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.125rem;
+            color: var(--text-primary);
+        }
+
+        .privacy-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .privacy-nav li {
+            margin-bottom: 8px;
+        }
+
+        .privacy-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .privacy-nav a:hover {
+            color: var(--primary-color);
+            background: var(--background-alt);
+            transform: translateX(4px);
+        }
+
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .privacy-hero h1 {
+                font-size: 2rem;
+            }
+
+            .privacy-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .privacy-nav {
+                position: static;
+                order: 2;
+                margin-bottom: 0;
+            }
+
+            .privacy-document {
+                padding: 30px 20px;
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#10A37F"/>
+                    <path d="M8 8L8 16L16 16L16 8L8 8ZM10 10L14 10L14 14L10 14L10 10Z" fill="white"/>
+                    <path d="M18 8L26 8L26 16L18 16L18 8ZM20 10L24 10L24 14L20 14L20 10Z" fill="white"/>
+                    <path d="M8 18L16 18L16 26L8 26L8 18ZM10 20L14 20L14 24L10 24L10 20Z" fill="white"/>
+                    <path d="M18 18L26 18L26 26L18 26L18 18ZM20 20L24 20L24 24L20 24L20 20Z" fill="white"/>
+                    <circle cx="16" cy="16" r="2" fill="#FFD700"/>
+                </svg>
+                <span>PinGptChats</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#privacy" class="nav-link">Privacy</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Privacy Hero -->
+    <header class="privacy-hero">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>Your privacy is our top priority. Learn how ChatGPT Pin Chats protects your data and respects your privacy.</p>
+        </div>
+    </header>
+
+    <!-- Privacy Content -->
+    <main class="privacy-content">
+        <div class="container">
+            <div class="privacy-layout">
+                <div class="privacy-nav">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#data-collection">Data Collection</a></li>
+                        <li><a href="#data-usage">Data Usage</a></li>
+                        <li><a href="#data-storage">Data Storage</a></li>
+                        <li><a href="#permissions">Permissions</a></li>
+                        <li><a href="#third-party">Third-Party Services</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#user-rights">User Rights</a></li>
+                        <li><a href="#changes">Policy Changes</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="privacy-document">
+                <h2 id="overview">Privacy Policy Overview</h2>
+                <p><strong>Last Updated:</strong> January 1, 2024</p>
+                <p>This Privacy Policy explains how PinGptChats ("the Extension") collects, uses, and protects your information. We are committed to protecting your privacy and ensuring the security of your data.</p>
+
+                <div class="privacy-highlight">
+                    <p><strong>Important:</strong> PinGptChats is designed with privacy as the top priority. We do not collect, store, or transmit your ChatGPT conversation content.</p>
+                </div>
+
+                <h2 id="data-collection">Data Collection</h2>
+                <h3>What We Don't Collect</h3>
+                <p>PinGptChats does <strong>NOT</strong> collect:</p>
+                <ul>
+                    <li>Your ChatGPT conversation content or messages</li>
+                    <li>Your personal information (name, email, etc.)</li>
+                    <li>Your browsing history or activity on other websites</li>
+                    <li>Your ChatGPT account information</li>
+                    <li>Any authentication tokens or credentials</li>
+                </ul>
+
+                <h3>What We Do Collect</h3>
+                <p>The Extension only stores the following information locally in your browser:</p>
+                <ul>
+                    <li><strong>Chat URLs:</strong> The URLs of your pinned ChatGPT conversations</li>
+                    <li><strong>Chat Titles:</strong> The titles of your pinned conversations</li>
+                    <li><strong>Pin Status:</strong> Whether a conversation is pinned or not</li>
+                    <li><strong>User Preferences:</strong> Your extension settings and preferences</li>
+                </ul>
+
+                <h2 id="data-usage">Data Usage</h2>
+                <p>The information we store is used exclusively for:</p>
+                <ul>
+                    <li><strong>Pinning Functionality:</strong> To keep track of which conversations you've pinned</li>
+                    <li><strong>UI Enhancement:</strong> To display pinned conversations at the top of your sidebar</li>
+                    <li><strong>Persistence:</strong> To remember your pins across browser sessions</li>
+                    <li><strong>Syncing:</strong> To sync your pins across your devices using Chrome's built-in sync</li>
+                </ul>
+
+                <div class="privacy-highlight">
+                    <p>All data processing happens locally in your browser. No data is sent to external servers or third parties.</p>
+                </div>
+
+                <h2 id="data-storage">Data Storage</h2>
+                <p>Your data is stored using Chrome's built-in storage APIs:</p>
+                <ul>
+                    <li><strong>Chrome Storage API:</strong> Data is stored locally using <code>chrome.storage.local</code></li>
+                    <li><strong>Sync Storage:</strong> If you're signed into Chrome, data syncs across devices using <code>chrome.storage.sync</code></li>
+                    <li><strong>Local Processing:</strong> All data processing happens on your device</li>
+                </ul>
+
+                <h3>Storage Duration</h3>
+                <p>Your pinned chat information is stored until:</p>
+                <ul>
+                    <li>You manually unpin conversations</li>
+                    <li>You uninstall the extension</li>
+                    <li>You clear your browser data</li>
+                </ul>
+
+                <h2 id="permissions">Permissions</h2>
+                <p>ChatGPT Pin Chats requests the following minimal permissions:</p>
+                <ul>
+                    <li><strong>Storage:</strong> To save your pinned chat preferences locally</li>
+                    <li><strong>Host Permissions:</strong> To run only on ChatGPT websites (<code>chatgpt.com</code> and <code>chat.openai.com</code>)</li>
+                </ul>
+
+                <div class="privacy-highlight">
+                    <p><strong>Why These Permissions?</strong> These permissions are strictly necessary for the pinning functionality and nothing more.</p>
+                </div>
+
+                <h2 id="third-party">Third-Party Services</h2>
+                <p>ChatGPT Pin Chats does not use any third-party services for:</p>
+                <ul>
+                    <li>Analytics or tracking</li>
+                    <li>Advertising</li>
+                    <li>Data processing</li>
+                    <li>User profiling</li>
+                </ul>
+
+                <p>The Extension is completely self-contained and does not communicate with any external servers.</p>
+
+                <h2 id="security">Security</h2>
+                <p>We implement several security measures:</p>
+                <ul>
+                    <li><strong>Local Storage:</strong> Data never leaves your browser</li>
+                    <li><strong>No Network Requests:</strong> The Extension makes no external network requests</li>
+                    <li><strong>Minimal Permissions:</strong> We only request essential permissions</li>
+                    <li><strong>Regular Updates:</strong> Security updates are provided through the Chrome Web Store</li>
+                    <li><strong>Open Source:</strong> The code is publicly available for review on GitHub</li>
+                </ul>
+
+                <h2 id="user-rights">User Rights</h2>
+                <p>You have complete control over your data:</p>
+                <ul>
+                    <li><strong>View:</strong> You can see all pinned conversations in the extension interface</li>
+                    <li><strong>Modify:</strong> You can pin or unpin any conversation at any time</li>
+                    <li><strong>Delete:</strong> You can remove all pins by uninstalling the extension</li>
+                    <li><strong>Export:</strong> You can access your data through Chrome's developer tools if needed</li>
+                    <li><strong>Opt-out:</strong> You can disable syncing in Chrome settings</li>
+                </ul>
+
+                <h2 id="changes">Policy Changes</h2>
+                <p>We may update this Privacy Policy to:</p>
+                <ul>
+                    <li>Reflect changes in our practices</li>
+                    <li>Comply with new regulations</li>
+                    <li>Clarify existing policies</li>
+                </ul>
+
+                <p>Any changes will be:</p>
+                <ul>
+                    <li>Posted on this page with an updated "Last Modified" date</li>
+                    <li>Effective immediately upon posting</li>
+                    <li>Communicated through extension updates if changes are significant</li>
+                </ul>
+
+                <h2 id="contact">Contact Information</h2>
+                <p>If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> hazem.aamer.dev@gmail.com</li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/7azemaamer/pinGptChats" target="_blank" rel="noopener">github.com/7azemaamer/pinGptChats</a></li>
+                    <li><strong>Chrome Web Store:</strong> Available through the Chrome Web Store developer contact</li>
+                </ul>
+
+                <div class="privacy-highlight">
+                    <p><strong>Our Commitment:</strong> We are committed to maintaining your privacy and will never compromise on data protection. If you have any privacy concerns, please don't hesitate to reach out.</p>
+                </div>
+
+                <h2>Legal Compliance</h2>
+                <p>This Privacy Policy is designed to comply with:</p>
+                <ul>
+                    <li>General Data Protection Regulation (GDPR)</li>
+                    <li>California Consumer Privacy Act (CCPA)</li>
+                    <li>Chrome Web Store Developer Program Policies</li>
+                    <li>Other applicable privacy laws</li>
+                </ul>
+
+                <p><strong>Legal Basis for Processing:</strong> Our legal basis for processing any data is legitimate interest in providing the pinning functionality you requested.</p>
+
+                <h2>Conclusion</h2>
+                <p>PinGptChats is built with privacy as a fundamental principle. We believe that privacy tools should respect user privacy above all else. This extension will never collect, store, or transmit your personal data beyond what is strictly necessary for the pinning functionality to work.</p>
+
+                <p>Thank you for trusting PinGptChats with your conversation organization needs.</p>
+
+                <div class="back-to-home">
+                    <a href="index.html" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        Back to Home
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 PinGptChats. All rights reserved.</p>
+                <p>This privacy policy was last updated on January 1, 2024.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reuse the same script functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navbar = document.getElementById('navbar');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // Navbar scroll effect
+            let lastScroll = 0;
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                lastScroll = currentScroll;
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 100;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Highlight current section in nav
+            const sections = document.querySelectorAll('h2[id]');
+            const navLinksHighlight = document.querySelectorAll('.privacy-nav a');
+
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinksHighlight.forEach(link => {
+                    link.style.background = '';
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.style.background = 'var(--background-alt)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
